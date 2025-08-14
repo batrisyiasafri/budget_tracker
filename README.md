@@ -38,6 +38,7 @@ cd budget_tracker
 ### 2. Create a virtual environment (optional but recommended)
 
 python -m venv venv
+
 venv\Scripts\activate
 
 ### 3. Install dependencies
