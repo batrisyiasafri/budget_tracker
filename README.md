@@ -51,6 +51,10 @@ flask run
 
 Then visit http://localhost:5000 in your browser.
 
+### 5. Run flask db init to generate the database
+
+flask db initto generate the database
+
 ---
 
 ## 📄 License
