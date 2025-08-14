@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 2rem 1rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  color: #0078d4;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+form {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"],
+select {
+  flex: 1 1 45%;
+  min-width: 140px;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 6px #0078d4aa;
+  background: #f0f8ff;
+}
+
+button {
+  flex: 1 1 100%;
+  padding: 0.75rem 1rem;
+  background: #0078d4;
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 120, 212, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #005a9e;
+}
+
+p {
+  max-width: 480px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0.25rem 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #0078d4;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background: #005a9e;
+}
+
+.flashes {
+  max-width: 480px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+.flashes p {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+ul li {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.transaction-info {
+  flex: 1 1 auto;
+  min-width: 0; 
+}
+
+.transaction-actions {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.transaction-actions a {
+  color: #0078d4;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1.5px solid transparent;
+}
+
+.transaction-actions a:hover {
+  color: #fff;
+  background-color: #0078d4;
+  border-color: #0078d4;
+}
+
+@media (max-width: 480px) {
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .transaction-actions {
+    margin-top: 0.5rem;
+  }
+}
+

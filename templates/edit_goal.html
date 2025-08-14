@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Budget Goal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 2rem 1rem;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #0078d4;
+      font-weight: 700;
+    }
+    form {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    input, select, button {
+      font-size: 1rem;
+      padding: 0.65rem 1rem;
+      border-radius: 6px;
+      border: 1.5px solid #ccc;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      font-weight: 500;
+      color: #333;
+    }
+    input::placeholder {
+      color: #aaa;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0078d4;
+      box-shadow: 0 0 6px #0078d4aa;
+      background: #f0f8ff;
+    }
+    button {
+      background: #0078d4;
+      color: white;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgb(0 120 212 / 0.3);
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #005a9e;
+    }
+    a {
+      text-align: center;
+      display: block;
+      margin-top: 0.25rem;
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0078d4;
+    }
+
+    .flashes {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    .flashes p {
+      margin: 0 0 0.5rem;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+      form {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form action="" method="POST" aria-label="Edit Budget Goal Form">
+    <h1>Edit Budget Goal</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for category, message in messages %}
+          <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% endwith %}
+
+    <input type="text" id="month" name="month" value="{{ formatted_month }}" required placeholder="e.g. 8/2025" pattern="^\d{1,2}/\d{4}$" aria-required="true"/>
+
+    <input type="text" id="category" name="category" value="{{ goal.category }}" placeholder="Category (optional)"/>
+
+    <input type="number" id="amount" name="amount" step="0.01" value="{{ goal.amount }}" required placeholder="Amount" aria-required="true"/>
+
+    <button type="submit">Update Goal</button>
+    <a href="{{ url_for('budget_goals') }}" role="button" tabindex="0">Cancel</a>
+  </form>
+
+</body>
+</html>

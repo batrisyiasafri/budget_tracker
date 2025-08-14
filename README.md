@@ -1,0 +1,1 @@
+Personal Budget Tracker is a lightweight web app that helps you manage your money by tracking your income and expenses. Easily categorize transactions, view real-time summaries, and visualize your spending patterns with interactive charts. Built with Flask, SQLite, and Chart.js.

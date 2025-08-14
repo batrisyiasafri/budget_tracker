@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Budget Tracker</title>
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+
+    <h1>Personal Budget Tracker</h1>
+    <form method="POST" action="{{ url_for('add_transaction') }}">
+        <input type="date" name="date" placeholder="DD/MM/YYYY" required>
+        <select name="type" id="" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <button type="submit">Add Transaction</button>
+    </form>
+
+
+    <h2>Transactions</h2>
+        <ul>
+        {% for transaction in transactions %}
+        <li>
+            <div class="transaction-info">
+            {{ transaction.date.strftime('%d-%m-%Y') }} |
+            {{ transaction.type }} |
+            {{ transaction.category }} |
+            BND {{ transaction.amount }} |
+            {{ transaction.description }}
+            </div>
+            <div class="transaction-actions">
+            <a href="{{ url_for('edit_transaction', transaction_id=transaction.id) }}">Edit</a>
+            <a href="{{ url_for('delete_transaction', transaction_id=transaction.id) }}" onclick="return confirm('Delete this transaction?');">Delete</a>
+            </div>
+        </li>
+        {% endfor %}
+        </ul>
+
+
+
+    <h3>Summary</h3>
+    <p>Total Income: BND {{ income_total }}</p>
+    <p>Total Expense: BND {{ expense_total }}</p>
+    <p>Balance: BND {{ balance }}</p>
+
+    <a href="{{ url_for('budget_goals') }}" class="btn">Set Budget Goals</a>
+
+</body>
+</html>
