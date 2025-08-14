@@ -32,6 +32,7 @@ Built with **Flask** and **SQLite**.
 ### 1. Clone the repository
 
 git clone https://github.com/batrisyiasafri/budget_tracker.git
+
 cd budget_tracker
 
 ### 2. Create a virtual environment (optional but recommended)
