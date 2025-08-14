@@ -31,24 +31,24 @@ Built with **Flask** and **SQLite**.
 
 ### 1. Clone the repository
 
-``bash
+```bash
 git clone https://github.com/batrisyiasafri/budget_tracker.git
 cd budget_tracker
 
 ### 2. Create a virtual environment (optional but recommended)
 
-``bash
+```bash
 python -m venv venv
 venv\Scripts\activate
 
 ### 3. Install dependencies
 
-``bash
+```bash
 pip install -r requirements.txt
 
 ### 4. Run the app
 
-``bash
+```bash
 flask run
 
 Then visit http://localhost:5000 in your browser.
