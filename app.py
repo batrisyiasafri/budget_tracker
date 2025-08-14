@@ -99,7 +99,7 @@ def edit_goal(goal_id):
     return render_template('edit_goal.html', goal=goal, formatted_month=formatted_month)
 
 # delete goal
-@app.route('/budget-goals/delete/<int:goal_id>', methods=['POST'])
+@app.route('/budget-goals/delete/<int:goal_id>', methods=['GET', 'POST'])
 def delete_goal(goal_id):
     goal = BudgetGoal.query.get_or_404(goal_id)
     db.session.delete(goal)
